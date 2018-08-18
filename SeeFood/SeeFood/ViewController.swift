@@ -13,6 +13,9 @@ import Vision
 class ViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     @IBOutlet weak var cameraImageView: UIImageView!
+    @IBOutlet weak var firstPrediction: UILabel!
+    @IBOutlet weak var secondPrediction: UILabel!
+    @IBOutlet weak var thirdPrediction: UILabel!
     
     let imagePicker = UIImagePickerController()
     
@@ -22,7 +25,7 @@ class ViewController : UIViewController, UIImagePickerControllerDelegate, UINavi
         
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = false
+        self.imagePicker.allowsEditing = false
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
@@ -56,7 +59,13 @@ class ViewController : UIViewController, UIImagePickerControllerDelegate, UINavi
                 fatalError("Could not bind classification results")
             }
             
-            print(results)
+            let firstConfidence = results[0].confidence * 100
+            let secondConfidence = results[1].confidence * 100
+            let thirdConfidence = results[2].confidence * 100
+            
+            self.firstPrediction.text = "\(results[0].identifier) = \(firstConfidence)"
+            self.secondPrediction.text = "\(results[1].identifier) = \(secondConfidence)"
+            self.thirdPrediction.text = "\(results[2].identifier) = \(thirdConfidence)"
         }
         
         let handler = VNImageRequestHandler(ciImage: image)

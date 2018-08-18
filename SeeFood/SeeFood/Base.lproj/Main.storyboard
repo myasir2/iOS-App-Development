@@ -18,16 +18,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U5z-Xc-WZE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U5z-Xc-WZE">
+                                <rect key="frame" x="0.0" y="64" width="375" height="348"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prediction 1" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3K-dE-a5B">
+                                <rect key="frame" x="16" y="443" width="343" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prediction 2" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCN-Ld-saV">
+                                <rect key="frame" x="16" y="488" width="343" height="21.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prediction 3" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuJ-Qc-Ps6">
+                                <rect key="frame" x="16" y="541" width="343" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="gCN-Ld-saV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0Nc-ji-CGm"/>
                             <constraint firstItem="U5z-Xc-WZE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6i8-35-SXb"/>
-                            <constraint firstItem="U5z-Xc-WZE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Cx4-ka-whg"/>
+                            <constraint firstItem="U5z-Xc-WZE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-255" id="Cx4-ka-whg"/>
+                            <constraint firstItem="r3K-dE-a5B" firstAttribute="top" secondItem="U5z-Xc-WZE" secondAttribute="bottom" constant="31" id="DJR-P9-BzD"/>
+                            <constraint firstItem="MuJ-Qc-Ps6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="G7f-6u-k5y"/>
+                            <constraint firstItem="MuJ-Qc-Ps6" firstAttribute="top" secondItem="gCN-Ld-saV" secondAttribute="bottom" constant="31.5" id="NSU-Mo-y9g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gCN-Ld-saV" secondAttribute="trailing" constant="16" id="PCD-bm-AGW"/>
+                            <constraint firstItem="r3K-dE-a5B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="S8H-Ag-DLi"/>
+                            <constraint firstItem="gCN-Ld-saV" firstAttribute="top" secondItem="r3K-dE-a5B" secondAttribute="bottom" constant="23" id="Ssf-cE-42H"/>
+                            <constraint firstItem="MuJ-Qc-Ps6" firstAttribute="top" secondItem="gCN-Ld-saV" secondAttribute="bottom" constant="31.5" id="XIU-Pb-sgA"/>
+                            <constraint firstItem="gCN-Ld-saV" firstAttribute="top" secondItem="r3K-dE-a5B" secondAttribute="bottom" constant="23" id="cXI-lU-I6C"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MuJ-Qc-Ps6" secondAttribute="trailing" constant="16" id="hya-dU-DVj"/>
                             <constraint firstItem="U5z-Xc-WZE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="khk-iE-dfN"/>
                             <constraint firstItem="U5z-Xc-WZE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lED-YU-27Y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MuJ-Qc-Ps6" secondAttribute="bottom" constant="104" id="qRf-O5-u52"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r3K-dE-a5B" secondAttribute="trailing" constant="16" id="rrh-Ma-lwD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +70,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cameraImageView" destination="U5z-Xc-WZE" id="FYg-MW-34F"/>
+                        <outlet property="firstPrediction" destination="r3K-dE-a5B" id="9jc-7g-Npv"/>
+                        <outlet property="secondPrediction" destination="gCN-Ld-saV" id="8A1-iZ-zz6"/>
+                        <outlet property="thirdPrediction" destination="MuJ-Qc-Ps6" id="KVl-BR-goW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
