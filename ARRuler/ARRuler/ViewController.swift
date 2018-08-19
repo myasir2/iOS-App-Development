@@ -14,20 +14,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    var sceneSpheres = [SCNNode]()
+    var textNode = SCNNode()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the view's delegate
         sceneView.delegate = self
-        
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        sceneView.autoenablesDefaultLighting = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,34 +43,88 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        if let firstTouchLocation = touches.first?.location(in: sceneView)
+        {
+            let firstTouchResults = sceneView.hitTest(firstTouchLocation, types: .featurePoint)
+            
+            if let firstTouchResult = firstTouchResults.first
+            {
+                addSphere(at: firstTouchResult)
+            }
+        }
     }
-
-    // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+    @IBAction func deleteNodesClicked(_ sender: Any)
+    {
+        for sphere in sceneSpheres
+        {
+            sphere.removeFromParentNode()
+        }
         
+        sceneSpheres = [SCNNode]()
+        textNode.removeFromParentNode()
     }
     
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+    private func addSphere(at hitResult: ARHitTestResult)
+    {
+        if(sceneSpheres.count < 2)
+        {
+            let sceneSphereMaterial = SCNMaterial()
+            sceneSphereMaterial.diffuse.contents = UIColor.red
+            
+            let sceneSphere = SCNSphere(radius: 0.005)
+            sceneSphere.materials = [sceneSphereMaterial]
+            
+            let sceneSphereNode = SCNNode(geometry: sceneSphere)
+            sceneSphereNode.position = SCNVector3(
+                hitResult.worldTransform.columns.3.x,
+                hitResult.worldTransform.columns.3.y,
+                hitResult.worldTransform.columns.3.z
+            )
+            
+            sceneSpheres.append(sceneSphereNode)
+            sceneView.scene.rootNode.addChildNode(sceneSphereNode)
+            
+            if(sceneSpheres.count == 2)
+            {
+                calculateDistance()
+            }
+        }
     }
     
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
+    private func calculateDistance()
+    {
+        let startPoint = sceneSpheres[0]
+        let endPoint = sceneSpheres[1]
         
+        print(startPoint.position)
+        print(endPoint.position)
+        
+        let a = endPoint.position.x - startPoint.position.x
+        let b = endPoint.position.y - startPoint.position.y
+        let c = endPoint.position.z - startPoint.position.z
+        let distance = sqrt(
+            pow(a, 2) +
+            pow(b, 2) +
+            pow(c, 2)
+        )
+        
+        updateText(text: "\(distance * 100) cm", endPoint: endPoint.position)
+    }
+    
+    private func updateText(text: String, endPoint: SCNVector3)
+    {
+        textNode.removeFromParentNode()
+        
+        let textGeometry = SCNText(string: text, extrusionDepth: 1.0)
+        textGeometry.firstMaterial?.diffuse.contents = UIColor.red
+        
+        textNode.geometry = textGeometry
+        textNode.position = SCNVector3(endPoint.x, endPoint.y + 0.01, endPoint.z)
+        textNode.scale = SCNVector3(0.01, 0.01, 0.01)
+        
+        sceneView.scene.rootNode.addChildNode(textNode)
     }
 }
