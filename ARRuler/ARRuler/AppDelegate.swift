@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ARDicee
+//  ARRuler
 //
-//  Created by Yasir Merchant on 2018-08-18.
+//  Created by Yasir Merchant on 2018-08-19.
 //  Copyright © 2018 Yasir Merchant. All rights reserved.
 //
 
