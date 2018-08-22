@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		451CCFF6212E0DC1006BAE0F /* twitter-sanders-apple3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 451CCFF5212E0DC1006BAE0F /* twitter-sanders-apple3.csv */; };
 		453F9157212DF8F5000E40AF /* twitter-data-model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 453F9156212DF8F5000E40AF /* twitter-data-model.mlmodel */; };
 		45E9FB3C212BAC09004A333E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9FB3B212BAC09004A333E /* AppDelegate.swift */; };
 		45E9FB3E212BAC09004A333E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E9FB3D212BAC09004A333E /* ViewController.swift */; };
@@ -16,7 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		453F9153212DF725000E40AF /* DataModelMaker.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DataModelMaker.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		451CCFF4212E0DC1006BAE0F /* DataModelMaker.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DataModelMaker.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		451CCFF5212E0DC1006BAE0F /* twitter-sanders-apple3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "twitter-sanders-apple3.csv"; sourceTree = SOURCE_ROOT; };
 		453F9156212DF8F5000E40AF /* twitter-data-model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "twitter-data-model.mlmodel"; sourceTree = SOURCE_ROOT; };
 		45E9FB38212BAC09004A333E /* TwitterSentimentAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterSentimentAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E9FB3B212BAC09004A333E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +59,8 @@
 		45E9FB3A212BAC09004A333E /* TwitterSentimentAnalysis */ = {
 			isa = PBXGroup;
 			children = (
-				453F9153212DF725000E40AF /* DataModelMaker.playground */,
+				451CCFF4212E0DC1006BAE0F /* DataModelMaker.playground */,
+				451CCFF5212E0DC1006BAE0F /* twitter-sanders-apple3.csv */,
 				45E9FB3B212BAC09004A333E /* AppDelegate.swift */,
 				45E9FB3D212BAC09004A333E /* ViewController.swift */,
 				45E9FB3F212BAC09004A333E /* Main.storyboard */,
@@ -128,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E9FB46212BAC0A004A333E /* LaunchScreen.storyboard in Resources */,
+				451CCFF6212E0DC1006BAE0F /* twitter-sanders-apple3.csv in Resources */,
 				45E9FB43212BAC0A004A333E /* Assets.xcassets in Resources */,
 				45E9FB41212BAC09004A333E /* Main.storyboard in Resources */,
 			);
