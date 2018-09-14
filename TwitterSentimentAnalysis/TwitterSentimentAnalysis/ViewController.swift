@@ -10,7 +10,7 @@ import UIKit
 import SwifteriOS
 import CoreML
 
-class ViewController: UIViewController
+class ViewController: UIViewController, UITextFieldDelegate
 {
     let consumerKey = ""
     let consumerSecret = ""
@@ -25,7 +25,15 @@ class ViewController: UIViewController
     {
         super.viewDidLoad()
         
+        inputText.delegate = self
         swifter = Swifter(consumerKey: consumerKey, consumerSecret: consumerSecret)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        self.view.endEditing(true)
+        
+        return false
     }
     
     private func changeEmoji(rating: Int)
